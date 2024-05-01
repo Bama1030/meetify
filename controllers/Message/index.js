@@ -4,7 +4,6 @@ const User = require("./../../models/user.model");
 
 const createMessage = async (user, content, room) => {
   console.log(user, content, room);
-
   try {
     user = await User.findOne({ email: user.email });
     user = user._id;
@@ -21,7 +20,6 @@ const createMessage = async (user, content, room) => {
   }
   try {
     const message = { user, content, room };
-
     const messageRes = await Message.create(message);
     return { success: true, message: messageRes };
   } catch (error) {
